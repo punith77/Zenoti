@@ -1,0 +1,44 @@
+# API Features
+    
+    1. Generate Token - An API that takes username/password in the body and returns an
+    access token in the response. Assume for now that if the username passed is kirang , an
+    access token will be returned successfully, otherwise an error. The access token needs
+    to be passed as a HTTP header in subsequent requests that require authorization.
+
+    2. Save City Weather - This API takes the name of the city and corresponding weather data
+    to save it in memory. The data is essentially a list of days and the mean temperature
+    recorded on those days. If the city data already exists, it is updated.
+
+    3. Fetch City Weather - This API takes in the name of the city and a date range to return
+    the temperatures recorded for those dates. To be able to fetch city weather, you need to
+    save the city weather first (done by calling Save API). You should be able to handle error
+    cases such as when city data has not been saved or when dates requested are out of
+    range or invalid, using Bad request error. City names are case insensitive.
+
+    4. Delete City Weather - This API takes in the name of the city and deletes entire data
+    corresponding to the city from memory. Fetching city weather after this operation results
+    in a Bad request error. City names are case insensitive.
+
+## Instructions
+
+# Install the required packages for the project run command "npm Install"
+
+# you can start the server by "npm start"
+
+# Endpoints
+ - /register - post end point - send following data in email {email: test@abc.com}
+ - /postCityWeather - post end point - send accesstoken in headers from register and use following postData
+    {
+        "city": "edmonton",
+        "weatherData": [{ "date": "2020-01-01", "temp": 22 }, { "date": "2020-01-02", "temp": 22 }, { "date": "2020-01-03", "temp": 23 }]
+    }
+ - /getCityWeather - get end point use below format
+    http://www.localhost:4586/getCityWeather?city=Vancouver&startDate=2020-01-02&endDate=2020-01-03
+
+ - /deleteCityWeather - delete end point
+    http://www.localhost:4586/deleteCityWeather?city=edmonton
+
+# Token expirres in 1 hour
+
+
+
